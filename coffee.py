@@ -6,10 +6,9 @@ count = 0
 
 while True:
     coffee = input("What coffee would you like? 1. Latte €3.50, 2. American €3, 3. Espresso €2.50 ")
-    if coffee.isnumeric():
+    if coffee.isnumeric() and coffee in ["1", "2", "3"]:
         coffee = float(coffee)
-        if coffee in [1, 2, 3]:
-            break
+        break
     else:
         print("Please enter a valid item number.")
 
@@ -22,14 +21,12 @@ else:
 
 while count < coffee:
     balance = input("please enter cash, €1 or €2. ")
-    if balance.isnumeric():
+    if balance.isnumeric() and balance in ["1", "2"]:
         balance = float(balance)
-        if balance in [1, 2]:
-            print(f"You have inserted, {count + balance}")
-            count = count + balance
+        print(f"You have inserted, €{count + balance}")
+        count = count + balance
     else:
         print("Only €1 and €2 allowed.")
 
 change = count - coffee
-print(f"Thank you, your change is, {change}")
-
+print(f"Thank you, your change is, €{change}")
